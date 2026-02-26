@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #F43F97;
+  --color-primary-hover: #D63383;
+  --color-cream: #FFF5E5;
+  --color-dark: #333333;
+  --color-light: #f9f9f9;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+  --font-script: 'Satisfy', cursive;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-dark);
+  background-color: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .text-outline {
+    -webkit-text-stroke: 2px #333;
+    /* Dark outline */
+    color: white;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+@media (max-width: 768px) {
+
+  /* ----- HERO SECTION ----- */
+  .hero-main-title {
+    font-size: 2.4rem !important;
+    line-height: 1.1 !important;
+    margin-top: 0.5rem !important;
+  }
+
+  .hero-side-text {
+    transform: translate(20%, -10%) !important;
+  }
+
+  .hero-side-text span:first-child {
+    font-size: 2rem !important;
+  }
+
+  .hero-side-text span:last-child {
+    font-size: 2.5rem !important;
+    margin-left: 0px !important;
+    margin-top: -10px !important;
+  }
+
+  .hero-desc-text {
+    font-size: 0.85rem !important;
+    padding: 0 20px !important;
+  }
+
+  /* ----- PROMO SECTIONS ----- */
+  .promo-text-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .promo-text-container h2 {
+    font-size: 1.8rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .promo-text-container p {
+    font-size: 0.9rem !important;
+    padding: 0 15px !important;
+  }
+
+  .promo-text-container button {
+    margin-top: 5px !important;
+  }
+
+  .promo-section-wrapper {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-side-text {
+    transform: translate(15%, -5%) !important;
+  }
+
+  .hero-main-title {
+    font-size: 2rem !important;
+  }
+
+  .hero-side-text span:first-child {
+    font-size: 1.6rem !important;
+  }
+
+  .hero-side-text span:last-child {
+    font-size: 2rem !important;
+  }
+}
