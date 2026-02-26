@@ -27,7 +27,7 @@ const Login = () => {
 
     const syncUserToBackend = async (user) => {
         try {
-            await fetch('http://localhost:5001/api/shop/sync-user', {
+            await fetch('https://loafers.onrender.com/api/shop/sync-user', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -46,7 +46,7 @@ const Login = () => {
         setError('');
         setLoading(true);
         try {
-            const res = await fetch('http://localhost:5001/api/auth/send-otp', {
+            const res = await fetch('https://loafers.onrender.com/api/auth/send-otp', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: formData.email })
@@ -66,7 +66,7 @@ const Login = () => {
         setError('');
         setLoading(true);
         try {
-            const res = await fetch('http://localhost:5001/api/auth/login', {
+            const res = await fetch('https://loafers.onrender.com/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: formData.email, otp: formData.otp })

@@ -145,7 +145,7 @@ const PaymentPage = () => {
                 clover_order_id: cloverOrderId
             };
 
-            const backendRes = await fetch('http://localhost:5001/api/shop/orders', {
+            const backendRes = await fetch('https://loafers.onrender.com/api/shop/orders', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(orderData)

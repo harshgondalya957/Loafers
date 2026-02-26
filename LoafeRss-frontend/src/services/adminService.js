@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5001/api/admin';
+const API_URL = 'https://loafers.onrender.com/api/admin';
 
 export const createStore = async (storeData) => {
     try {

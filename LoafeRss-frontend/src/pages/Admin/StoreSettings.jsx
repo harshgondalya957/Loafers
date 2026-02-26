@@ -17,7 +17,7 @@ const StoreSettings = () => {
 
     const fetchSettings = async () => {
         try {
-            const res = await fetch('http://localhost:5001/api/store/settings');
+            const res = await fetch('https://loafers.onrender.com/api/store/settings');
             if (res.ok) {
                 const data = await res.json();
                 if (data && data.open_time) setSettings(data);
@@ -31,7 +31,7 @@ const StoreSettings = () => {
 
     const handleSave = async () => {
         try {
-            const res = await fetch('http://localhost:5001/api/store/settings', {
+            const res = await fetch('https://loafers.onrender.com/api/store/settings', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(settings)

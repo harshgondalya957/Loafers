@@ -25,7 +25,7 @@ const DeliveryDashboard = () => {
 
     const fetchOrders = async () => {
         try {
-            const res = await fetch(`http://localhost:5001/api/delivery/orders/${rider.id}`);
+            const res = await fetch(`https://loafers.onrender.com/api/delivery/orders/${rider.id}`);
             if (res.ok) {
                 const data = await res.json();
                 setOrders(data);

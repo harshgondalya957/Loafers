@@ -16,9 +16,9 @@ const Reports = () => {
         setLoading(true);
         try {
             const [ordersRes, salesRes, deliveryRes] = await Promise.all([
-                fetch(`http://localhost:5001/api/admin/reports/orders?type=${reportType}`),
-                fetch(`http://localhost:5001/api/admin/reports/sales?type=${reportType}`),
-                fetch(`http://localhost:5001/api/admin/reports/delivery`) // Currently all-time
+                fetch(`https://loafers.onrender.com/api/admin/reports/orders?type=${reportType}`),
+                fetch(`https://loafers.onrender.com/api/admin/reports/sales?type=${reportType}`),
+                fetch(`https://loafers.onrender.com/api/admin/reports/delivery`) // Currently all-time
             ]);
 
             if (ordersRes.ok && salesRes.ok && deliveryRes.ok) {

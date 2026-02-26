@@ -13,7 +13,7 @@ const Categories = () => {
 
     const fetchData = async () => {
         try {
-            const res = await fetch('http://localhost:5001/api/store/categories');
+            const res = await fetch('https://loafers.onrender.com/api/store/categories');
             if (res.ok) {
                 const data = await res.json();
                 setCategories(data);
@@ -29,8 +29,8 @@ const Categories = () => {
         e.preventDefault();
         try {
             const url = editing
-                ? `http://localhost:5001/api/store/categories/${editing}`
-                : 'http://localhost:5001/api/store/categories';
+                ? `https://loafers.onrender.com/api/store/categories/${editing}`
+                : 'https://loafers.onrender.com/api/store/categories';
             const method = editing ? 'PUT' : 'POST';
 
             const res = await fetch(url, {
@@ -57,7 +57,7 @@ const Categories = () => {
     const handleDelete = async (id) => {
         if (!window.confirm("Delete this category?")) return;
         try {
-            await fetch(`http://localhost:5001/api/store/categories/${id}`, { method: 'DELETE' });
+            await fetch(`https://loafers.onrender.com/api/store/categories/${id}`, { method: 'DELETE' });
             fetchData();
         } catch (error) {
             console.error(error);

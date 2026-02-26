@@ -22,7 +22,7 @@ const Orders = () => {
 
     const fetchOrders = async () => {
         try {
-            const response = await fetch('http://localhost:5001/api/admin/orders');
+            const response = await fetch('https://loafers.onrender.com/api/admin/orders');
             if (response.ok) {
                 const data = await response.json();
                 setOrders(data);
@@ -36,7 +36,7 @@ const Orders = () => {
 
     const fetchOrderDetails = async (id) => {
         try {
-            const res = await fetch(`http://localhost:5001/api/admin/orders/${id}`);
+            const res = await fetch(`https://loafers.onrender.com/api/admin/orders/${id}`);
             if (res.ok) {
                 const data = await res.json();
                 setSelectedOrder(data);
@@ -50,7 +50,7 @@ const Orders = () => {
     const handleDeleteOrder = async (id) => {
         if (window.confirm('Are you sure you want to cancel/delete this order?')) {
             try {
-                const response = await fetch(`http://localhost:5001/api/admin/orders/${id}`, {
+                const response = await fetch(`https://loafers.onrender.com/api/admin/orders/${id}`, {
                     method: 'DELETE',
                 });
                 if (response.ok) {
@@ -68,7 +68,7 @@ const Orders = () => {
     const handleDeleteAllOrders = async () => {
         if (window.confirm('WARNING: This will delete ALL orders. Are you sure?')) {
             try {
-                const response = await fetch(`http://localhost:5001/api/admin/orders/all`, {
+                const response = await fetch(`https://loafers.onrender.com/api/admin/orders/all`, {
                     method: 'DELETE',
                 });
                 if (response.ok) {

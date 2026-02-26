@@ -19,7 +19,7 @@ const CustomerList = () => {
 
     const fetchCustomers = async () => {
         try {
-            const response = await fetch('http://localhost:5001/api/admin/customers'); // Fetch all
+            const response = await fetch('https://loafers.onrender.com/api/admin/customers'); // Fetch all
             if (response.ok) {
                 const data = await response.json();
                 setCustomers(data);

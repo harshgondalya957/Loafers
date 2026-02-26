@@ -12,7 +12,7 @@ const Coupons = () => {
 
     const fetchCoupons = async () => {
         try {
-            const res = await fetch('http://localhost:5001/api/store/coupons');
+            const res = await fetch('https://loafers.onrender.com/api/store/coupons');
             if (res.ok) setCoupons(await res.json());
         } catch (error) {
             console.error(error);
@@ -24,7 +24,7 @@ const Coupons = () => {
     const handleDelete = async (id) => {
         if (!window.confirm("Are you sure you want to delete this coupon?")) return;
         try {
-            const res = await fetch(`http://localhost:5001/api/store/coupons/${id}`, { method: 'DELETE' });
+            const res = await fetch(`https://loafers.onrender.com/api/store/coupons/${id}`, { method: 'DELETE' });
             if (res.ok) fetchCoupons();
         } catch (error) {
             console.error(error);
@@ -34,7 +34,7 @@ const Coupons = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch('http://localhost:5001/api/store/coupons', {
+            const res = await fetch('https://loafers.onrender.com/api/store/coupons', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(form)
