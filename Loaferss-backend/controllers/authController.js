@@ -24,7 +24,7 @@ const sendEmail = async (to, subject, text) => {
             from: `"Loafers" <${process.env.EMAIL_USER}>`,
             to,
             subject,
-            text
+            html: text
         });
         console.log(`Email sent to ${to}`);
     } catch (error) {
@@ -46,7 +46,18 @@ exports.sendOtp = async (req, res) => {
         await OTP.create({ email, otp });
 
         // Send Email (Async)
-        sendEmail(email, "Your Loafers Login OTP", `Your OTP is: ${otp}`);
+        const emailHtml = `
+            <div style="font-family: Arial, sans-serif; color: #333;">
+                <h3>Hello!</h3>
+                <p>Welcome to <strong>Loafers</strong>! We are excited to serve you.</p>
+                <p style="font-size: 16px;">Your Login OTP is: <strong style="font-size: 24px; color: #e63946; letter-spacing: 2px;">${otp}</strong></p>
+                <p>Please enter this code to securely access your account.</p>
+                <p>Get ready to enjoy the best food in town!</p>
+                <br/>
+                <p>Best Regards,<br/><strong>The Loafers Team</strong></p>
+            </div>
+        `;
+        sendEmail(email, "Your Loafers Login OTP", emailHtml);
 
         res.json({ message: "OTP sent successfully" });
     } catch (err) {
