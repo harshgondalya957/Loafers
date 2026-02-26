@@ -8,7 +8,7 @@ const Riders = () => {
 
     const fetchRiders = async () => {
         try {
-            const res = await fetch('https://loafers.onrender.com/api/store/riders');
+            const res = await fetch('https://loafers-backend-2.onrender.com/api/store/riders');
             if (res.ok) {
                 const data = await res.json();
                 setRiders(data);
@@ -27,7 +27,7 @@ const Riders = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch('https://loafers.onrender.com/api/store/riders', {
+            const res = await fetch('https://loafers-backend-2.onrender.com/api/store/riders', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(form)
@@ -48,7 +48,7 @@ const Riders = () => {
     const handleDelete = async (id) => {
         if (!window.confirm("Delete this rider?")) return;
         try {
-            await fetch(`https://loafers.onrender.com/api/store/riders/${id}`, { method: 'DELETE' });
+            await fetch(`https://loafers-backend-2.onrender.com/api/store/riders/${id}`, { method: 'DELETE' });
             fetchRiders();
         } catch (error) {
             console.error(error);

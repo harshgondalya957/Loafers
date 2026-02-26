@@ -8,7 +8,7 @@ const CreateStore = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('https://loafers.onrender.com/api/admin/store', {
+            const response = await fetch('https://loafers-backend-2.onrender.com/api/admin/store', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, location })

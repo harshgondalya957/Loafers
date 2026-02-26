@@ -24,7 +24,7 @@ const DeliveryOrderDetails = () => {
 
     const fetchDetails = async () => {
         try {
-            const res = await fetch(`https://loafers.onrender.com/api/delivery/order/${orderId}`);
+            const res = await fetch(`https://loafers-backend-2.onrender.com/api/delivery/order/${orderId}`);
             if (res.ok) setOrder(await res.json());
         } catch (error) {
             console.error(error);
@@ -35,7 +35,7 @@ const DeliveryOrderDetails = () => {
 
     const updateStatus = async (status) => {
         try {
-            const res = await fetch(`https://loafers.onrender.com/api/delivery/order/${orderId}/status`, {
+            const res = await fetch(`https://loafers-backend-2.onrender.com/api/delivery/order/${orderId}/status`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status })

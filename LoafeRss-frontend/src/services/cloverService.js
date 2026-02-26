@@ -1,4 +1,4 @@
-const API_URL = 'https://loafers.onrender.com/api';
+const API_URL = 'https://loafers-backend-2.onrender.com/api';
 
 /**
  * Tokenizes card details securely.

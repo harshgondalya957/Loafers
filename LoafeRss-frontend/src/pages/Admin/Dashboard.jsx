@@ -20,10 +20,10 @@ const Dashboard = () => {
     const fetchDashboardData = async () => {
         try {
             const [ordersRes, activeRes, customersRes, ridersRes] = await Promise.all([
-                fetch('https://loafers.onrender.com/api/admin/reports/orders?type=date'),
-                fetch('https://loafers.onrender.com/api/store/orders/active'),
-                fetch('https://loafers.onrender.com/api/admin/customers'),
-                fetch('https://loafers.onrender.com/api/store/riders')
+                fetch('https://loafers-backend-2.onrender.com/api/admin/reports/orders?type=date'),
+                fetch('https://loafers-backend-2.onrender.com/api/store/orders/active'),
+                fetch('https://loafers-backend-2.onrender.com/api/admin/customers'),
+                fetch('https://loafers-backend-2.onrender.com/api/store/riders')
             ]);
 
             if (ordersRes.ok && activeRes.ok && customersRes.ok) {
@@ -54,7 +54,7 @@ const Dashboard = () => {
 
     const updateStatus = async (id, status) => {
         try {
-            await fetch(`https://loafers.onrender.com/api/store/orders/${id}/status`, {
+            await fetch(`https://loafers-backend-2.onrender.com/api/store/orders/${id}/status`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status })
@@ -82,7 +82,7 @@ const Dashboard = () => {
             const order = recentOrders.find(o => o.id === orderId);
             const currentStatus = order ? order.status : 'pending';
 
-            await fetch(`https://loafers.onrender.com/api/store/orders/${orderId}/status`, {
+            await fetch(`https://loafers-backend-2.onrender.com/api/store/orders/${orderId}/status`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: currentStatus, rider_id: riderId })

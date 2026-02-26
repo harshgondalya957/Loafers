@@ -30,7 +30,7 @@ const Signup = () => {
         setError('');
         setLoading(true);
         try {
-            const res = await fetch('https://loafers.onrender.com/api/auth/send-otp', {
+            const res = await fetch('https://loafers-backend-2.onrender.com/api/auth/send-otp', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: formData.email })
@@ -51,7 +51,7 @@ const Signup = () => {
         setLoading(true);
         try {
             // Call Backend Signup which verifies OTP
-            const res = await fetch('https://loafers.onrender.com/api/auth/signup', {
+            const res = await fetch('https://loafers-backend-2.onrender.com/api/auth/signup', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -95,7 +95,7 @@ const Signup = () => {
             const user = result.user;
 
             try {
-                await fetch('https://loafers.onrender.com/api/shop/sync-user', {
+                await fetch('https://loafers-backend-2.onrender.com/api/shop/sync-user', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({

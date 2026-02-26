@@ -38,7 +38,7 @@ const Customization = () => {
 
     const fetchGroups = async () => {
         try {
-            const res = await fetch('https://loafers.onrender.com/api/store/customization-groups');
+            const res = await fetch('https://loafers-backend-2.onrender.com/api/store/customization-groups');
             if (res.ok) setGroups(await res.json());
         } catch (error) {
             console.error(error);
@@ -49,7 +49,7 @@ const Customization = () => {
 
     const fetchGroupItems = async (groupId) => {
         try {
-            const res = await fetch(`https://loafers.onrender.com/api/store/customization-groups/${groupId}/items`);
+            const res = await fetch(`https://loafers-backend-2.onrender.com/api/store/customization-groups/${groupId}/items`);
             if (res.ok) setGroupItems(await res.json());
         } catch (error) {
             console.error(error);
@@ -60,7 +60,7 @@ const Customization = () => {
     const handleGroupSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch('https://loafers.onrender.com/api/store/customization-groups', {
+            const res = await fetch('https://loafers-backend-2.onrender.com/api/store/customization-groups', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(groupForm)
@@ -77,7 +77,7 @@ const Customization = () => {
     const handleDeleteGroup = async (id) => {
         if (!window.confirm("Are you sure? This will delete the group and all its items.")) return;
         try {
-            const res = await fetch(`https://loafers.onrender.com/api/store/customization-groups/${id}`, { method: 'DELETE' });
+            const res = await fetch(`https://loafers-backend-2.onrender.com/api/store/customization-groups/${id}`, { method: 'DELETE' });
             if (res.ok) {
                 fetchGroups();
                 if (selectedGroup && selectedGroup.id === id) setSelectedGroup(null);
@@ -93,7 +93,7 @@ const Customization = () => {
         if (!selectedGroup) return;
 
         try {
-            const res = await fetch(`https://loafers.onrender.com/api/store/customization-groups/${selectedGroup.id}/items`, {
+            const res = await fetch(`https://loafers-backend-2.onrender.com/api/store/customization-groups/${selectedGroup.id}/items`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(itemForm)
@@ -111,7 +111,7 @@ const Customization = () => {
     const handleDeleteItem = async (itemId) => {
         if (!window.confirm("Delete this option?")) return;
         try {
-            await fetch(`https://loafers.onrender.com/api/store/customization-items/${itemId}`, { method: 'DELETE' });
+            await fetch(`https://loafers-backend-2.onrender.com/api/store/customization-items/${itemId}`, { method: 'DELETE' });
             if (selectedGroup) fetchGroupItems(selectedGroup.id);
         } catch (error) {
             console.error(error);

@@ -185,7 +185,7 @@ const OrderNow = () => {
     useEffect(() => {
         const fetchSettings = async () => {
             try {
-                const res = await fetch('https://loafers.onrender.com/api/store/settings');
+                const res = await fetch('https://loafers-backend-2.onrender.com/api/store/settings');
                 if (res.ok) {
                     const data = await res.json();
                     setStoreSettings(data);

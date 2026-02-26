@@ -44,7 +44,7 @@ const Checkout = () => {
         // Fetch Store Settings Time Boundaries
         const fetchSettings = async () => {
             try {
-                const res = await fetch('https://loafers.onrender.com/api/store/settings');
+                const res = await fetch('https://loafers-backend-2.onrender.com/api/store/settings');
                 if (res.ok) {
                     const data = await res.json();
                     setStoreSettings(data);
@@ -155,7 +155,7 @@ const Checkout = () => {
         };
 
         try {
-            const response = await fetch('https://loafers.onrender.com/api/shop/orders', {
+            const response = await fetch('https://loafers-backend-2.onrender.com/api/shop/orders', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
