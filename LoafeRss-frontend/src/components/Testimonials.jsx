@@ -82,7 +82,7 @@ const Testimonials = () => {
                     >
                         {testimonials.map((item, index) => (
                             <SwiperSlide key={index} className="h-auto">
-                                <div className="bg-[#FFF5E5] rounded-xl p-8 shadow-sm flex flex-col items-center h-full min-h-[300px] border border-gray-100">
+                                <div className="bg-white rounded-xl p-8 shadow-sm flex flex-col items-center h-full min-h-[300px] border border-[#FFE5f0]">
                                     {/* 1. Circular User Image */}
                                     <img
                                         src={item.img}
