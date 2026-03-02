@@ -1,12 +1,14 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import testimonialUser1 from '../assets/testimonial_user_1.png';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import '../swiper-custom.css';
 
 const testimonials = [
     {
@@ -36,6 +38,20 @@ const testimonials = [
         img: "https://randomuser.me/api/portraits/women/44.jpg",
         text: "Absolutely delicious! The best breakfast I've had in a long time.",
         rating: 5
+    },
+    {
+        name: "Sarah Jenkins",
+        role: "Local Resident",
+        img: "https://randomuser.me/api/portraits/women/68.jpg",
+        text: "Great atmosphere and friendly staff. The coffee here is a must-try!",
+        rating: 5
+    },
+    {
+        name: "Mike Thomson",
+        role: "Food Enthusiast",
+        text: "A hidden gem in Denton. The sandwiches are packed with flavor and definitely worth the trip.",
+        img: "https://randomuser.me/api/portraits/men/22.jpg",
+        rating: 4
     }
 ];
 
@@ -54,64 +70,67 @@ const Testimonials = () => {
                 </div>
 
                 {/* Swiper Carousel */}
-                <div className="max-w-6xl mx-auto mt-8">
-                    <Swiper
-                        modules={[Autoplay, Pagination]}
-                        spaceBetween={30}
-                        slidesPerView={1}
-                        autoplay={{
-                            delay: 3000,
-                            disableOnInteraction: false,
-                        }}
-                        pagination={{
-                            clickable: true,
-                            dynamicBullets: true,
-                        }}
-                        breakpoints={{
-                            640: {
-                                slidesPerView: 1,
-                            },
-                            768: {
-                                slidesPerView: 2,
-                            },
-                            1024: {
-                                slidesPerView: 3,
-                            },
-                        }}
-                        className="pb-12"
-                    >
-                        {testimonials.map((item, index) => (
-                            <SwiperSlide key={index} className="h-auto">
-                                <div className="bg-white rounded-xl p-8 shadow-sm flex flex-col items-center h-full min-h-[300px] border border-[#FFE5f0]">
-                                    {/* 1. Circular User Image */}
-                                    <img
-                                        src={item.img}
-                                        alt={item.name}
-                                        className="w-24 h-24 rounded-full object-cover mb-8 bg-gray-100"
-                                    />
+                <div className="max-w-6xl mx-auto mt-8 testimonials-swiper-container">
+                    <div className="relative pb-12">
+                        <Swiper
+                            modules={[Autoplay, Pagination, Navigation]}
+                            spaceBetween={30}
+                            slidesPerView={1}
+                            navigation={true}
+                            autoplay={{
+                                delay: 3000,
+                                disableOnInteraction: false,
+                            }}
+                            pagination={{
+                                clickable: true,
+                                dynamicBullets: true,
+                            }}
+                            breakpoints={{
+                                640: {
+                                    slidesPerView: 1,
+                                },
+                                768: {
+                                    slidesPerView: 2,
+                                },
+                                1024: {
+                                    slidesPerView: 3,
+                                },
+                            }}
+                            className="testimonials-swiper"
+                        >
+                            {testimonials.map((item, index) => (
+                                <SwiperSlide key={index} className="h-auto">
+                                    <div className="bg-white rounded-xl p-8 shadow-sm flex flex-col items-center h-full border-[3px] border-[#FFF5E5]">
+                                        {/* 1. Circular User Image */}
+                                        <img
+                                            src={item.img}
+                                            alt={item.name}
+                                            className="w-24 h-24 rounded-full object-cover mb-8 bg-gray-100"
+                                        />
 
-                                    {/* 2. Testimonial Text (Italic) */}
-                                    <p className="text-gray-500 italic leading-relaxed mb-8 flex-grow">
-                                        {item.text}
-                                    </p>
+                                        {/* 2. Testimonial Text (Italic) */}
+                                        <p className="text-gray-500 italic leading-relaxed mb-8 flex-grow">
+                                            {item.text}
+                                        </p>
 
-                                    {/* 3. User Name & Role (Pink text combination) */}
-                                    <h4 className="font-heading font-bold text-sm text-[#EC4899] mb-1 text-center">
-                                        <span className="text-gray-900 border-b border-gray-300 pb-0.5 mr-2">{item.name}</span>
-                                        <br className="md:hidden" />
-                                        ({item.role})
-                                    </h4>
+                                        {/* 3. User Name & Role (Pink text combination) */}
+                                        <h4 className="font-heading font-bold text-sm text-[#EC4899] mb-1 text-center">
+                                            <span className="text-gray-900 border-b border-gray-300 pb-0.5 mr-2">{item.name}</span>
+                                            <br className="md:hidden" />
+                                            ({item.role})
+                                        </h4>
 
-                                    {/* 5. Optional Star Rating (Black outline style in user image usually) */}
-                                    <div className="flex gap-1 text-black mt-2">
-                                        {[...Array(5)].map((_, i) => (
-                                            <FaStar key={i} size={16} className={i < item.rating ? "opacity-100" : "opacity-30"} />
-                                        ))}
+                                        {/* 5. Optional Star Rating (Black outline style in user image usually) */}
+                                        <div className="flex gap-1 text-black mt-2">
+                                            {[...Array(5)].map((_, i) => (
+                                                <FaStar key={i} size={16} className={i < item.rating ? "opacity-100" : "opacity-30"} />
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
                 </div>
             </div>
         </section>
