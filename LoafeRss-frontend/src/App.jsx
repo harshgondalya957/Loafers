@@ -38,6 +38,7 @@ import RiderLogin from './pages/Delivery/RiderLogin';
 import DeliveryDashboard from './pages/Delivery/DeliveryDashboard';
 import DeliveryOrderDetails from './pages/Delivery/DeliveryOrderDetails';
 import AboutUs from './pages/AboutUs';
+import ScrollToTop from './components/ScrollToTop';
 
 // Home Page Component (extracting existing App content)
 const Home = () => (
@@ -98,6 +99,7 @@ const Home = () => (
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <LocationProvider>
         <AuthProvider>
           <LocationModal />

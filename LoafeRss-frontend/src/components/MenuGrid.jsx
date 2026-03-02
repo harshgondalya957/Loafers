@@ -30,7 +30,7 @@ const MenuGrid = () => {
                     <div
                         key={item.id}
                         onClick={() => handleCardClick(item.category)}
-                        className="relative group h-60 sm:h-72 md:h-96 overflow-hidden cursor-pointer rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                        className="relative group h-72 sm:h-80 md:h-[400px] overflow-hidden cursor-pointer rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                     >
                         {/* Image */}
                         <img

@@ -9,7 +9,7 @@ const Footer = () => {
         <footer className="bg-white relative w-full overflow-hidden flex flex-col md:flex-row min-h-auto md:min-h-[500px]">
 
             {/* Left Decorative Image (Pan) - Desktop */}
-            <div className="hidden md:block absolute left-[-2%] bottom-5 z-50 w-[150px] lg:w-[200px] xl:w-[280px]">
+            <div className="hidden md:block absolute left-[-2%] bottom-5 z-50 w-[150px] lg:w-[200px] xl:w-[280px] translate-x-[30px]">
                 <img src={pisanImg} alt="Breakfast Pan" className="w-full h-auto object-contain drop-shadow-2xl scale-x-[-1]" />
             </div>
 
@@ -20,7 +20,7 @@ const Footer = () => {
                 <div className="flex-1 bg-white pt-10 pb-6 px-6 sm:px-12 md:py-16 md:pr-8 md:pl-[140px] lg:pl-[200px] xl:pl-64 flex flex-row justify-between gap-x-4 items-start relative z-20">
 
                     {/* Left Column (Address, Menu, Reservations, Hours) */}
-                    <div className="flex flex-col space-y-8 w-1/2 text-left items-start pr-2">
+                    <div className="flex flex-col space-y-8 w-1/2 text-left items-start pr-2 pl-[10px]">
                         <div>
                             <h4 className="font-heading text-[#F43F97] text-sm md:text-base font-black uppercase mb-2">ADDRESS :</h4>
                             <p className="text-gray-600 text-xs md:text-sm leading-relaxed font-medium">

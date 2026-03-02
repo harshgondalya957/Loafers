@@ -21,10 +21,10 @@ const Items = () => {
     const fetchData = async () => {
         try {
             const [itemsRes, catRes, subRes, groupRes] = await Promise.all([
-                fetch('https://loafers-backend-2.onrender.com/api/store/items'),
-                fetch('https://loafers-backend-2.onrender.com/api/store/categories'),
-                fetch('https://loafers-backend-2.onrender.com/api/store/sub-categories'),
-                fetch('https://loafers-backend-2.onrender.com/api/store/customization-groups')
+                fetch('http://localhost:5001/api/store/items'),
+                fetch('http://localhost:5001/api/store/categories'),
+                fetch('http://localhost:5001/api/store/sub-categories'),
+                fetch('http://localhost:5001/api/store/customization-groups')
             ]);
 
             if (itemsRes.ok) setItems(await itemsRes.json());
@@ -51,8 +51,8 @@ const Items = () => {
         e.preventDefault();
         try {
             const url = editing
-                ? `https://loafers-backend-2.onrender.com/api/store/items/${editing}`
-                : 'https://loafers-backend-2.onrender.com/api/store/items';
+                ? `http://localhost:5001/api/store/items/${editing}`
+                : 'http://localhost:5001/api/store/items';
             const method = editing ? 'PUT' : 'POST';
 
             const res = await fetch(url, {
@@ -78,7 +78,7 @@ const Items = () => {
     const handleToggleStatus = async (item) => {
         try {
             const newStatus = item.is_active ? 0 : 1;
-            await fetch(`https://loafers-backend-2.onrender.com/api/store/items/${item._id}/status`, {
+            await fetch(`http://localhost:5001/api/store/items/${item._id}/status`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ is_active: newStatus })
@@ -92,7 +92,7 @@ const Items = () => {
     const handleDelete = async (id) => {
         if (!window.confirm("Are you sure you want to delete this item?")) return;
         try {
-            await fetch(`https://loafers-backend-2.onrender.com/api/store/items/${id}`, { method: 'DELETE' });
+            await fetch(`http://localhost:5001/api/store/items/${id}`, { method: 'DELETE' });
             fetchData();
         } catch (error) {
             console.error(error);

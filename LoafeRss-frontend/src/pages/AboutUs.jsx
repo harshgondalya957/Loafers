@@ -11,7 +11,7 @@ const AboutUs = () => {
             <Navbar />
 
             {/* 1. Header Section */}
-            <div className="relative pt-24 pb-20 lg:pt-32 lg:pb-28 overflow-hidden bg-black">
+            <div className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden bg-black">
                 <div className="absolute inset-0 z-0 opacity-40">
                     <img src={bgImage} alt="Cafe Background" className="w-full h-full object-cover" />
                 </div>
@@ -28,7 +28,7 @@ const AboutUs = () => {
             </div>
 
             {/* 2. About Description */}
-            <TornPaperBackground className="py-20 md:py-32" bgColor="#FFF9EF" topEdge={false}>
+            <TornPaperBackground className="py-12 md:py-20" bgColor="#FFF9EF" topEdge={false}>
                 <div className="container mx-auto px-6 max-w-4xl text-center">
                     <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-8 tracking-tight">Welcome to Loafers!</h2>
                     <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-medium">

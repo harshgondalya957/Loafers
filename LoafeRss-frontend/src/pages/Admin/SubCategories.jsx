@@ -15,8 +15,8 @@ const SubCategories = () => {
     const fetchData = async () => {
         try {
             const [subRes, catRes] = await Promise.all([
-                fetch('https://loafers-backend-2.onrender.com/api/store/sub-categories'),
-                fetch('https://loafers-backend-2.onrender.com/api/store/categories')
+                fetch('http://localhost:5001/api/store/sub-categories'),
+                fetch('http://localhost:5001/api/store/categories')
             ]);
 
             if (subRes.ok && catRes.ok) {
@@ -36,8 +36,8 @@ const SubCategories = () => {
         e.preventDefault();
         try {
             const url = editing
-                ? `https://loafers-backend-2.onrender.com/api/store/sub-categories/${editing}`
-                : 'https://loafers-backend-2.onrender.com/api/store/sub-categories';
+                ? `http://localhost:5001/api/store/sub-categories/${editing}`
+                : 'http://localhost:5001/api/store/sub-categories';
             const method = editing ? 'PUT' : 'POST';
 
             const res = await fetch(url, {
@@ -64,7 +64,7 @@ const SubCategories = () => {
     const handleDelete = async (id) => {
         if (!window.confirm("Delete this sub-category?")) return;
         try {
-            await fetch(`https://loafers-backend-2.onrender.com/api/store/sub-categories/${id}`, { method: 'DELETE' });
+            await fetch(`http://localhost:5001/api/store/sub-categories/${id}`, { method: 'DELETE' });
             fetchData();
         } catch (error) {
             console.error(error);
